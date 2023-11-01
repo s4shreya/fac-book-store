@@ -18,7 +18,7 @@ app.use(express.json());
 // Option 2: Allow custom origins
 app.use(
   cors({
-    origin: "https://fac-book-store-frontend.vercel.app/",
+    origin: ["https://fac-book-store-frontend.vercel.app/", "https://fac-book-store-frontend-s4shreyas-projects.vercel.app/"],
     method: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
