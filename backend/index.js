@@ -18,7 +18,7 @@ app.use(express.json());
 // Option 2: Allow custom origins
 app.use(
   cors({
-    origin: ["https://fac-book-store-frontend.vercel.app/", "https://fac-book-store-frontend-s4shreyas-projects.vercel.app/"],
+    origin: ["https://fac-book-store-frontend.vercel.app/", "https://fac-book-store-frontend-s4shreyas-projects.vercel.app/", "https://localhost:5173"],
     method: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
@@ -31,13 +31,13 @@ const port = process.env.PORT;
 const mongoDB_URL = process.env.mongoDB_URL;
 
 // Home page route
-app.get("https://fac-book-store-server.vercel.app/", (request, response) => {
+app.get("/", (request, response) => {
   console.log(request);
   return response.status(234).send("Welcome");
 });
 
 // Middleware for using book route
-app.use("https://fac-book-store-server.vercel.app/books", bookRoutes);
+app.use("/books", bookRoutes);
 
 // connecting with database
 mongoose
