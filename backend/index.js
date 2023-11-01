@@ -1,8 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
 
-import { PORT, mongoDBURL } from "./config.js";
+// import { PORT, mongoDBURL } from "./config.js";
 import bookRoutes from "./routes/bookRoutes.js";
 
 const app = express();
@@ -17,11 +18,18 @@ app.use(express.json());
 // Option 2: Allow custom origins
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "https://fac-book-store-frontend.vercel.app/",
     method: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
 );
+
+// Load environment variables from .env file
+dotenv.config();
+
+const port = process.env.PORT;
+const mongoDB_URL = process.env.mongoDB_URL;
 
 // Home page route
 app.get("/", (request, response) => {
@@ -34,12 +42,12 @@ app.use("/books", bookRoutes);
 
 // connecting with database
 mongoose
-  .connect(mongoDBURL)
+  .connect(mongoDB_URL)
   .then(() => {
     console.log("App connected to database");
     // listen to requests
-    app.listen(PORT, () => {
-      console.log(`server is running on port ${PORT}`);
+    app.listen(port, () => {
+      console.log(`server is running on port ${port}`);
     });
   })
   .catch((error) => {
