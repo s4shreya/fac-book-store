@@ -1,1 +1,1 @@
-export const BASE_URL = "jttps://fac-book-store-server-kt7xd7rwb-s4shreyas-projects.vercel.app";
+export const BASE_URL = "https://fac-book-store-server-kt7xd7rwb-s4shreyas-projects.vercel.app";
