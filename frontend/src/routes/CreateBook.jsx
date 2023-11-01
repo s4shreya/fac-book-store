@@ -26,7 +26,7 @@ const CreateBook = () => {
 
     // storing data on database by sending post request
     axios
-      .post("http://localhost:5555/books", data)
+      .post("https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books", data)
       .then(() => {
         setLoading(false);
 

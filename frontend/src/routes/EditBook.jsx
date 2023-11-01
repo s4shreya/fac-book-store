@@ -20,7 +20,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`)
       .then((response) => {
         setTitle(response.data.data.title);
         setAuthor(response.data.data.author);
@@ -43,7 +43,7 @@ const EditBook = () => {
 
     // storing data on database by sending post request
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book updated successfully!", { variant: "success" });

@@ -19,7 +19,7 @@ const DeleteBook = () => {
 
     // Axios http request to delete the book with the id
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`)
       .then((response) => {
         setLoading(false);
         enqueueSnackbar("Book deleted successfully!", { variant: "success" });
