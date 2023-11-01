@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from 'notistack';
+import { BASE_URL } from "../../config";
 
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
@@ -26,7 +27,7 @@ const CreateBook = () => {
 
     // storing data on database by sending post request
     axios
-      .post("https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books", data)
+      .post(`${BASE_URL}/books`, data)
       .then(() => {
         setLoading(false);
 

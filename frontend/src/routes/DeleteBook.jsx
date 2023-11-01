@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { BASE_URL } from "../../config";
 
 import Spinner from "../components/Spinner";
 import BackButton from "../components/BackButton";
@@ -19,7 +20,7 @@ const DeleteBook = () => {
 
     // Axios http request to delete the book with the id
     axios
-      .delete(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`)
+      .delete(`${BASE_URL}/books/${id}`)
       .then((response) => {
         setLoading(false);
         enqueueSnackbar("Book deleted successfully!", { variant: "success" });

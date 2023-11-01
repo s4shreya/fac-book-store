@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 
+import { BASE_URL } from "../../config";
+
 const ShowBooks = () => {
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,7 +15,7 @@ const ShowBooks = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`)
+      .get(`${BASE_URL}/books/${id}`)
       .then((response) => {
         setBook(response.data.data);
         setLoading(false);

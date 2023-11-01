@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { BASE_URL } from "../../config";
 
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
@@ -20,7 +21,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`)
+      .get(`${BASE_URL}/books/${id}`)
       .then((response) => {
         setTitle(response.data.data.title);
         setAuthor(response.data.data.author);
@@ -43,7 +44,7 @@ const EditBook = () => {
 
     // storing data on database by sending post request
     axios
-      .put(`https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app/books/${id}`, data)
+      .put(`${BASE_URL}/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book updated successfully!", { variant: "success" });
