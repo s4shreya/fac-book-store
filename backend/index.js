@@ -31,13 +31,13 @@ const port = process.env.PORT;
 const mongoDB_URL = process.env.mongoDB_URL;
 
 // Home page route
-app.get("/", (request, response) => {
+app.get("https://fac-book-store-server.vercel.app/", (request, response) => {
   console.log(request);
   return response.status(234).send("Welcome");
 });
 
 // Middleware for using book route
-app.use("/books", bookRoutes);
+app.use("https://fac-book-store-server.vercel.app/books", bookRoutes);
 
 // connecting with database
 mongoose
