@@ -9,7 +9,7 @@ import BooksTable from "../components/home/BooksTable";
 import { MdOutlineAddBox } from "react-icons/md";
 
 // const baseURL = "http://localhost:5555";
-const baseURL = "http://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app";
+const baseURL = "https://fac-book-store-server-wj5xz2dwy-s4shreyas-projects.vercel.app";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
