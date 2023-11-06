@@ -13,17 +13,16 @@ app.use(express.json());
 
 // Middleware for handling CORS Policy
 // Option 1: Allow all origins with default of CORS (*)
-// app.use(cors());
+app.use(cors());
 
 // Option 2: Allow custom origins
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://fac-book-store-frontend.vercel.app/"],
-    // origin: ["https://fac-book-store-frontend.vercel.app/", "https://fac-book-store-frontend-s4shreyas-projects.vercel.app/", "http://localhost:5173"],
-    method: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:5173", "https://fac-book-store-frontend.vercel.app/"],
+//     method: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
 
 // Load environment variables from .env file
 dotenv.config();
