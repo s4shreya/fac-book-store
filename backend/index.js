@@ -18,7 +18,8 @@ app.use(express.json());
 // Option 2: Allow custom origins
 app.use(
   cors({
-    origin: ["https://fac-book-store-frontend.vercel.app/", "https://fac-book-store-frontend-s4shreyas-projects.vercel.app/", "https://localhost:5173"],
+    origin: ["http://localhost:5173", "https://fac-book-store-frontend.vercel.app/"],
+    // origin: ["https://fac-book-store-frontend.vercel.app/", "https://fac-book-store-frontend-s4shreyas-projects.vercel.app/", "http://localhost:5173"],
     method: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
@@ -32,7 +33,6 @@ const mongoDB_URL = process.env.mongoDB_URL;
 
 // Home page route
 app.get("/", (request, response) => {
-  console.log(request);
   return response.status(234).send("Welcome");
 });
 
